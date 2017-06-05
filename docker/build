@@ -1,0 +1,12 @@
+#!/bin/sh
+
+DOCKER_IMAGE_NAME=ossystems/$1
+IMAGE_DIR=docker/$1
+
+cd $IMAGE_DIR
+
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+docker build -f Dockerfile -t $DOCKER_IMAGE_NAME .
+
+[ ! -z "$TRAVIS_TAG" ] && docker tag $DOCKER_IMAGE_NAME:latest $DOCKER_IMAGE_NAME:$TRAVIS_TAG
+[ "$TRAVIS_BRANCH" = "master" ] && docker push $DOCKER_IMAGE_NAME

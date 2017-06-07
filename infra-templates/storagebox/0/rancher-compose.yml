@@ -1,0 +1,14 @@
+.catalog:
+  name: "REX-Ray DigitalOcean"
+  version: "v0.0.0"
+  description: |
+    Docker volume plugin for DigitalOcean
+  questions:
+    - variable: USERNAME
+      type: string
+      required: true
+      label: Storage Box username
+    - variable: PASSWORD
+      type: string
+      required: true
+      label: Storage Box password

@@ -1,0 +1,9 @@
+name: Hetzner Storage Box
+description: |
+  Hetzner Storage Box mounter
+version: v0.0.0
+category: Storage
+maintainer: O.S. Systems
+projectURL: http://github.com/OSSystems/rancher-catalog
+labels:
+  io.rancher.orchestration.supported: 'cattle,swarm'

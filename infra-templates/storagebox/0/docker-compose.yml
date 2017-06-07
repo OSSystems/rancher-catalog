@@ -1,0 +1,18 @@
+version: '2'
+services:
+  storagebox:
+    privileged: true
+    cap_add:
+    - DAC_READ_SEARCH
+    - SYS_ADMIN
+    image: gustavosbarreto/storagebox
+    environment:
+      USERNAME: '${USERNAME}'
+      PASSWORD: '${PASSWORD}'
+    stdin_open: true
+    volumes:
+    - /var/lib/rancher/volumes:/var/lib/rancher/volumes:shared
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.global: true

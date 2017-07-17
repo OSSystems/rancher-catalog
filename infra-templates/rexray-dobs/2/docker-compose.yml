@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  rexray-dobs-driver:
+    image: ossystems/rexray-dobs
+    privileged: true
+    network_mode: host
+    stdin_open: true
+    tty: true
+    volumes:
+      - /run:/run
+      - /var/run:/var/run
+      - /dev:/host/dev
+      - /var/lib/rancher/volumes:/var/lib/rancher/volumes:shared
+    environment:
+      LIBSTORAGE_SERVICE: 'dobs'
+      DOBS_TOKEN: '${DOBS_TOKEN}'
+      DEFAULT_VOLUME_SIZE: '${DEFAULT_VOLUME_SIZE}'
+      RANCHER_DEBUG: '${RANCHER_DEBUG}'
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.global: true
+      io.rancher.container.create_agent: 'true'
+      io.rancher.container.agent.role: environment

@@ -1,0 +1,32 @@
+.catalog:
+  name: "REX-Ray DigitalOcean"
+  version: "v0.9.0"
+  description: |
+    Docker volume plugin for DigitalOcean
+  questions:
+    - variable: DOBS_TOKEN
+      type: string
+      required: true
+      label: DigitalOcean Token
+      description: DigitalOcean access token
+    - variable: DEFAULT_VOLUME_SIZE
+      type: int
+      required: true
+      default: 1
+      label: DigitalOcean default volume size
+      description: Size in GB to create volumes in DigitalOcean
+    - variable: RANCHER_DEBUG
+      type: enum
+      required: true
+      default: false
+      options:
+      - true
+      - false
+      label: Debug Mode
+      description: Enable or disable verbose logging
+
+rexray-dobs-driver:
+  storage_driver:
+    name: rexray-dobs
+    scope: environment
+    volume_access_mode: singleHostRW

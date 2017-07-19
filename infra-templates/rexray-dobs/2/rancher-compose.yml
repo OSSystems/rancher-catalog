@@ -1,6 +1,6 @@
 .catalog:
   name: "REX-Ray DigitalOcean"
-  version: "v0.9.0"
+  version: "v2.0.0"
   description: |
     Docker volume plugin for DigitalOcean
   questions:

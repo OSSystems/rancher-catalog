@@ -1,0 +1,25 @@
+.catalog:
+  name: "Rancher Backup Agent"
+  version: "v0.0.0"
+  description: |
+    Rancher Backup Agent
+  questions:
+    - variable: S3_ACCESS_KEY
+      type: string
+      required: true
+      label: "S3 Access Key"
+    - variable: S3_SECRET_KEY
+      type: string
+      required: true
+      label: "S3 Secret Key"
+    - variable: S3_BUCKET
+      type: string
+      required: true
+      label: "S3 Bucket"
+      description: S3 bucket where the uploaded images will be stored and served from
+    - variable: S3_URL
+      type: string
+      required: true
+      default: "https://s3.amazonaws.com"
+      label: "S3 URL"
+      description: "Do not modify this unless you want to use your own Minio server"    

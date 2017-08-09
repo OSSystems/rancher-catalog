@@ -1,0 +1,27 @@
+backup-agent:
+  image: ossystems/rancher-backup-agent:v1.0.1
+  stdin_open: true
+  tty: true
+  environment:
+    DOCKER_HOST: 'docker-engine:2375'
+    S3_ACCESS_KEY: '${S3_ACCESS_KEY}'
+    S3_SECRET_KEY: '${S3_SECRET_KEY}'
+    S3_URL: '${S3_URL}'
+    S3_BUCKET: '${S3_BUCKET}'
+  volumes:
+    - data:/data
+  labels:
+    io.rancher.container.agent.role: environment
+    io.rancher.sidekicks: docker-engine
+    io.rancher.container.create_agent: 'true'
+    io.rancher.container.pull_image: always
+
+docker-engine:
+  privileged: true
+  image: index.docker.io/docker:17.03.2-ce-dind
+  stdin_open: true
+  volumes:
+    - data:/data
+  tty: true
+  labels:
+    io.rancher.container.pull_image: always

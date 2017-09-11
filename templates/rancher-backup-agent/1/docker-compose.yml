@@ -23,5 +23,7 @@ docker-engine:
   volumes:
     - data:/data
   tty: true
+  command:
+    - --storage-driver=aufs
   labels:
     io.rancher.container.pull_image: always

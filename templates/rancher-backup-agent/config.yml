@@ -1,7 +1,7 @@
 name: Rancher Backup Agent
 description: |
   Rancher Backup Agent
-version: v1.0.2
+version: v1.0.3
 category: Backup
 maintainer: O.S. Systems
 projectURL: http://github.com/OSSystems/rancher-backup-agent
